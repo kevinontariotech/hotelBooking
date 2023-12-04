@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginBottom="20dp"
+    android:elevation="12dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="15dp"
+    tools:context=".ThirdFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- banner -->
+        <ImageView
+            android:id="@+id/roomImage"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:background="#606060"
+            android:scaleType="fitXY"
+            android:src="@drawable/hotel_wide_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- name -->
+        <TextView
+            android:id="@+id/roomName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Standard Room"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roomImage" />
+
+        <!-- square feet -->
+        <ImageView
+            android:id="@+id/squareFeetIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_square"
+            app:layout_constraintStart_toStartOf="@+id/roomName"
+            app:layout_constraintTop_toBottomOf="@+id/roomName"
+            app:tint="#494949" />
+
+        <TextView
+            android:id="@+id/squareFeetLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="250 sq ft"
+            android:textColor="#494949"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/squareFeetIcon"
+            app:layout_constraintStart_toEndOf="@+id/squareFeetIcon"
+            app:layout_constraintTop_toTopOf="@+id/squareFeetIcon" />
+
+        <!-- beds -->
+        <ImageView
+            android:id="@+id/bedIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_bed"
+            app:layout_constraintStart_toStartOf="@+id/roomName"
+            app:layout_constraintTop_toBottomOf="@+id/squareFeetIcon"
+            app:tint="#494949" />
+
+        <TextView
+            android:id="@+id/bedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="2 Queen Beds"
+            android:textColor="#494949"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/bedIcon"
+            app:layout_constraintStart_toEndOf="@+id/bedIcon"
+            app:layout_constraintTop_toTopOf="@+id/bedIcon" />
+
+        <!-- people -->
+        <ImageView
+            android:id="@+id/peopleIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_two_people"
+            app:layout_constraintStart_toStartOf="@+id/roomName"
+            app:layout_constraintTop_toBottomOf="@+id/bedIcon"
+            app:tint="#494949" />
+
+        <TextView
+            android:id="@+id/peopleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Sleeps 4"
+            android:textColor="#494949"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/peopleIcon"
+            app:layout_constraintStart_toEndOf="@+id/peopleIcon"
+            app:layout_constraintTop_toTopOf="@+id/peopleIcon" />
+
+        <!-- divider -->
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/materialDivider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:dividerInsetEnd="20dp"
+            app:dividerInsetStart="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/peopleText" />
+
+        <!-- price -->
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$199"
+            android:textColor="#3DBC42"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/roomName"
+            app:layout_constraintTop_toBottomOf="@+id/materialDivider" />
+
+        <!-- total price -->
+        <TextView
+            android:id="@+id/totalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="$249 total"
+            android:textColor="#494949"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/price"
+            app:layout_constraintTop_toBottomOf="@+id/price" />
+
+        <!-- fees -->
+        <TextView
+            android:id="@+id/feesText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Includes taxes and fees"
+            android:textColor="#494949"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/price"
+            app:layout_constraintTop_toBottomOf="@+id/totalPrice" />
+
+        <!-- reserve button -->
+        <Button
+            android:id="@+id/reserveButton"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/color_accent"
+            android:text="Reserve"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:rippleColor="#29FFFFFF" />
+
+        <!-- availability -->
+        <TextView
+            android:id="@+id/availableText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:text="Available"
+            android:textColor="#3DBC42"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/roomName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/roomName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

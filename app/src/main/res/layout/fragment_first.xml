@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F3F3"
+    tools:context=".FirstFragment">
+
+    <!-- holds hotel images -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- dot indicator for viewpager-->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintTop_toTopOf="@id/viewpager"
+        app:tabBackground="@drawable/tab_indicator"
+        app:tabGravity="center"
+        app:tabIndicator="@null"
+        app:tabPaddingEnd="12dp"
+        app:tabPaddingStart="12dp" />
+
+    <!-- hotel information -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="20dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="12dp"
+        app:layout_constraintTop_toTopOf="@+id/viewpager">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/hotel_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp">
+
+                    <!-- hotel name -->
+                    <TextView
+                        android:id="@+id/textViewHotelName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Serenity Springs Hotel"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- star icon -->
+                    <ImageView
+                        android:id="@+id/imageViewHotelRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_star"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="#FF9800" />
+
+                    <!-- hotel rating -->
+                    <TextView
+                        android:id="@+id/textViewHotelRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="4.7"
+                        android:textColor="#FF9800"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewHotelRating"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- location icon -->
+                    <ImageView
+                        android:id="@+id/imageViewLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:src="@drawable/ic_location"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHotelName" />
+
+                    <!-- hotel address -->
+                    <TextView
+                        android:id="@+id/textViewHotelAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="9dp"
+                        android:text="3476 N Mississppi Ave, Portland, Oregon."
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewLocation"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHotelName" />
+
+                    <!-- distance icon -->
+                    <ImageView
+                        android:id="@+id/imageViewDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/ic_route"
+                        app:layout_constraintTop_toBottomOf="@+id/imageViewLocation" />
+
+                    <!-- hotel distance -->
+                    <TextView
+                        android:id="@+id/textViewHotelDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="9dp"
+                        android:text="23.7 km away"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewDistance"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHotelAddress" />
+
+                    <!-- hotel description -->
+                    <TextView
+                        android:id="@+id/textViewHotelDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="With a prime loation that grants easy access to the area's renowed landmarks and attractions, our hotel provides a seamless blend of comfort, convenience, and authentic local hospitality. Our well-appointed rooms, adorned with modern ejuvenating stay for every guest."
+                        android:textColor="#787878"
+                        android:textSize="13sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHotelDistance" />
+
+                    <!-- hotel amenities title -->
+                    <TextView
+                        android:id="@+id/textViewHotelAmenities"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Amenities"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHotelDescription" />
+
+                    <!-- holds amenities -->
+                    <HorizontalScrollView
+                        android:id="@+id/amenitiesContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:scrollbars="none"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHotelAmenities">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/amenitiesCard1"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_margin="8dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="4dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/ic_wifi"
+                                        android:tint="@color/blue" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Wifi"
+                                        android:textColor="@color/blue"
+                                        android:textSize="11sp" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/amenitiesCard2"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_margin="8dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="4dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/ic_parking"
+                                        android:tint="#F44336" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Parking"
+                                        android:textColor="#F44336"
+                                        android:textSize="11sp" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/amenitiesCard3"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_margin="8dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="4dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/ic_food"
+                                        android:tint="#4CAF50" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Food"
+                                        android:textColor="#4CAF50"
+                                        android:textSize="11sp" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/amenitiesCard4"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_margin="8dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="4dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/ic_beach"
+                                        android:tint="#673AB7" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Beach View"
+                                        android:textColor="#673AB7"
+                                        android:textSize="11sp" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/amenitiesCard5"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_margin="8dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="4dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/ic_pool"
+                                        android:tint="#FF9800" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Pool"
+                                        android:textColor="#FF9800"
+                                        android:textSize="11sp" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <!-- hotel location -->
+                    <TextView
+                        android:id="@+id/textViewLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Location On Map"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/amenitiesContainer" />
+
+                    <!-- holds map -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/mapCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="280dp"
+                        android:layout_marginTop="10dp"
+                        app:cardBackgroundColor="@color/blue"
+                        app:cardCornerRadius="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/textViewLocation">
+                        <!-- map -->
+                        <org.osmdroid.views.MapView
+                            android:id="@+id/osmmap"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- hotel review text -->
+                    <TextView
+                        android:id="@+id/textViewReviews"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Reviews"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mapCard" />
+
+                    <!-- holds user reviews -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/reviewContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="280dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintTop_toBottomOf="@id/textViewReviews">
+
+                        <androidx.core.widget.NestedScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <!-- review one -->
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/review1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    app:cardBackgroundColor="@color/white"
+                                    app:cardCornerRadius="8dp">
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:id="@+id/review_layout_1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp">
+
+                                        <!-- profile icon -->
+                                        <androidx.cardview.widget.CardView
+                                            android:id="@+id/profileContainer1"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:elevation="0dp"
+                                            app:cardBackgroundColor="@color/black"
+                                            app:cardCornerRadius="20dp">
+
+                                            <androidx.constraintlayout.widget.ConstraintLayout
+                                                android:id="@+id/profileBackground1"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent">
+
+                                                <ImageView
+                                                    android:layout_width="22dp"
+                                                    android:layout_height="22dp"
+                                                    android:src="@drawable/ic_person"
+                                                    android:tint="@color/white"
+                                                    app:layout_constraintBottom_toBottomOf="@id/profileBackground1"
+                                                    app:layout_constraintLeft_toLeftOf="@id/profileBackground1"
+                                                    app:layout_constraintRight_toRightOf="@id/profileBackground1"
+                                                    app:layout_constraintTop_toTopOf="@id/profileBackground1" />
+                                            </androidx.constraintlayout.widget.ConstraintLayout>
+                                        </androidx.cardview.widget.CardView>
+
+                                        <TextView
+                                            android:id="@+id/profileName1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="7dp"
+                                            android:text="Jane Doe"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold"
+                                            app:layout_constraintStart_toEndOf="@+id/profileContainer1"
+                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                        <ImageView
+                                            android:id="@+id/profileStar1"
+                                            android:layout_width="16dp"
+                                            android:layout_height="16dp"
+                                            android:layout_marginStart="2dp"
+                                            android:layout_marginTop="1dp"
+                                            android:src="@drawable/ic_star"
+                                            app:layout_constraintStart_toEndOf="@+id/profileRating1"
+                                            app:layout_constraintTop_toBottomOf="@+id/profileName1"
+                                            app:tint="#FF9800" />
+
+                                        <TextView
+                                            android:id="@+id/profileRating1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="10dp"
+                                            android:text="4.7"
+                                            android:textColor="#FF9800"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold"
+                                            app:layout_constraintStart_toEndOf="@+id/profileContainer1"
+                                            app:layout_constraintTop_toBottomOf="@+id/profileName1" />
+
+                                        <TextView
+                                            android:id="@+id/profileReview1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget tempus neque. Donec sit amet accumsan felis. Aenean tempor ac ipsum sed eleifend. Suspendisse condimentum eleifend mauris. Maecenas eget ex non diam scelerisque sodales vel in ligula."
+                                            android:textColor="#686868"
+                                            android:textSize="10sp"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toBottomOf="@+id/profileRating1" />
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <!-- review two -->
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/review2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    app:cardBackgroundColor="@color/white"
+                                    app:cardCornerRadius="8dp">
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:id="@+id/review_layout_2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp">
+
+                                        <!-- profile icon -->
+                                        <androidx.cardview.widget.CardView
+                                            android:id="@+id/profileContainer2"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:elevation="0dp"
+                                            app:cardBackgroundColor="@color/black"
+                                            app:cardCornerRadius="20dp">
+
+                                            <androidx.constraintlayout.widget.ConstraintLayout
+                                                android:id="@+id/profileBackground2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent">
+
+                                                <ImageView
+                                                    android:layout_width="22dp"
+                                                    android:layout_height="22dp"
+                                                    android:src="@drawable/ic_person"
+                                                    android:tint="@color/white"
+                                                    app:layout_constraintBottom_toBottomOf="@id/profileBackground2"
+                                                    app:layout_constraintLeft_toLeftOf="@id/profileBackground2"
+                                                    app:layout_constraintRight_toRightOf="@id/profileBackground2"
+                                                    app:layout_constraintTop_toTopOf="@id/profileBackground2" />
+                                            </androidx.constraintlayout.widget.ConstraintLayout>
+                                        </androidx.cardview.widget.CardView>
+
+                                        <TextView
+                                            android:id="@+id/profileName2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="7dp"
+                                            android:text="John Doe"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold"
+                                            app:layout_constraintStart_toEndOf="@+id/profileContainer2"
+                                            app:layout_constraintTop_toTopOf="parent" />
+
+                                        <ImageView
+                                            android:id="@+id/profileStar2"
+                                            android:layout_width="16dp"
+                                            android:layout_height="16dp"
+                                            android:layout_marginStart="2dp"
+                                            android:layout_marginTop="1dp"
+                                            android:src="@drawable/ic_star"
+                                            app:layout_constraintStart_toEndOf="@+id/profileRating2"
+                                            app:layout_constraintTop_toBottomOf="@+id/profileName2"
+                                            app:tint="#FF9800" />
+
+                                        <TextView
+                                            android:id="@+id/profileRating2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="10dp"
+                                            android:text="4.9"
+                                            android:textColor="#FF9800"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold"
+                                            app:layout_constraintStart_toEndOf="@+id/profileContainer2"
+                                            app:layout_constraintTop_toBottomOf="@+id/profileName2" />
+
+                                        <TextView
+                                            android:id="@+id/profileReview2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:text="Aenean nulla arcu, luctus eu rutrum in, blandit sit amet ante. Mauris suscipit dui a maximus aliquet. Nam id nisi non felis mattis imperdiet. Fusce viverra odio nulla, id tristique sapien maximus sed."
+                                            android:textColor="#686868"
+                                            android:textSize="10sp"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toBottomOf="@+id/profileRating2" />
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </androidx.cardview.widget.CardView>
+                            </LinearLayout>
+                        </androidx.core.widget.NestedScrollView>
+                    </androidx.cardview.widget.CardView>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        app:layout_constraintTop_toBottomOf="@id/reviewContainer">
+                        <!-- empty view -->
+                    </View>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <!-- button to move to next fragment-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bottomButton"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="230dp"
+                android:layout_marginBottom="70dp"
+                android:elevation="8dp"
+                android:text="Book Now"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:rippleColor="#809E9E9E" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

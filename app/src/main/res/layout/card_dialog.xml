@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="425dp"
+    android:background="#FFFFFF">
+
+    <!-- title -->
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Enter Card Information"
+        android:textColor="#686868"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- card name label -->
+    <TextView
+        android:id="@+id/dialogNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/dialogTitle"
+        app:layout_constraintTop_toBottomOf="@+id/dialogTitle" />
+
+    <!-- card name text field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dialogNameTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/blue"
+        app:hintEnabled="false"
+        app:layout_constraintStart_toStartOf="@+id/dialogNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/dialogNameLabel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialogNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="John Smith" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- card number label -->
+    <TextView
+        android:id="@+id/dialogNumberLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Card Number"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/dialogTitle"
+        app:layout_constraintTop_toBottomOf="@+id/dialogNameTextField" />
+
+    <!-- card number text field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dialogNumberTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/blue"
+        app:hintEnabled="false"
+        app:layout_constraintStart_toStartOf="@+id/dialogTitle"
+        app:layout_constraintTop_toBottomOf="@+id/dialogNumberLabel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialogNumberEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="2024 2315 9453 4398" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- card expiry label -->
+    <TextView
+        android:id="@+id/dialogExpiryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Expiration"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/dialogTitle"
+        app:layout_constraintTop_toBottomOf="@+id/dialogNumberTextField" />
+
+    <!-- card cvv label -->
+    <TextView
+        android:id="@+id/dialogCVVLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="20dp"
+        android:text="CVV"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/dialogExpiryLabel"
+        app:layout_constraintTop_toBottomOf="@+id/dialogNumberTextField" />
+
+    <!-- stores expiration and cvv text fields -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/dialogTitle"
+        app:layout_constraintTop_toBottomOf="@+id/dialogExpiryLabel">
+
+        <!-- expiration text field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dialogExpiryTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            app:boxStrokeColor="@color/blue"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dialogExpiryEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="08/26" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- cvv text field-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dialogCVVTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            app:boxStrokeColor="@color/blue"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dialogCVVEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="235" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <!-- enter button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/enterButton"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#31AA36"
+        android:text="Add Card"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
