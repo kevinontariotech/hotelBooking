@@ -1,4 +1,4 @@
-# hotelBooking <br />
-login info: <br />
-user: mar@gmail.com <br />
-pass: 1234 <br />
+# hotelBooking 
+login info: \
+user: mar@gmail.com \
+pass: 1234 
