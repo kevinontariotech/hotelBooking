@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.hotelbooking.databinding.FragmentLoginBinding;
@@ -25,6 +26,8 @@ public class LoginFragment extends Fragment {
     EditText pass;
     Button loginBTN;
     boolean valid;
+    boolean emptyData;
+    DatabaseManager databaseManager;
     VideoView videoView;
 
     @Override
@@ -32,7 +35,6 @@ public class LoginFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
@@ -43,6 +45,24 @@ public class LoginFragment extends Fragment {
 
         loginBTN = view.findViewById(R.id.loginButton);
         videoView = view.findViewById(R.id.vid);
+        databaseManager = new DatabaseManager(requireContext());
+        emptyData = databaseManager.isHotelTableEmpty();
+        if(emptyData) {
+            databaseManager.insertHotel(1, "Hilton Toronto", "43.650074606202445", "-79.38558647373958", "145 Richmond St W, Toronto, ON M5H 2L2",
+                    "(416) 869-3456", 3);
+            databaseManager.insertHotel(2, "Novotel Toronto Centre", "43.64826638444023", "-79.37594523891353",
+                    "45 The Esplanade, Toronto, ON M5E 1W2",
+                    "+14163678900", 2);
+            databaseManager.insertHotel(3, "La Quinta Inn & Suites by Wyndham Oshawa", "43.900849604566716", "-78.8621463175336",
+                    "63 King St E, Oshawa, ON L1H 1B4",
+                    "+19055711333", 3);
+            databaseManager.insertHotel(4, "Courtyard by Marriott Oshawa", "43.89453689589726", "-78.81724963908988",
+                    "1011 Bloor St E, Oshawa, ON L1H 7K6",
+                    "+19055765101", 2);
+            databaseManager.insertUser(3, "mar@gmail.com", "1234", "Mar",
+                    "Koval", "99883344");
+        }
+
         Uri videoUri = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + R.raw.login_video);
         videoView.setVideoURI(videoUri);
         videoView.setOnPreparedListener(mp -> {
@@ -64,7 +84,21 @@ public class LoginFragment extends Fragment {
             public void onClick(View v) {
                 email = view.findViewById(R.id.email);
                 pass = view.findViewById(R.id.password);
-                NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_LoginFragment_to_MainFragment);
+                valid = databaseManager.isValidUser(email.getText().toString(),pass.getText().toString());
+                if(email.getText().toString().equals("") || pass.getText().toString().equals(""))
+                {
+                    email.setError("please fill the feilds");
+                }else{
+                    if(valid){
+                        NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_LoginFragment_to_MainFragment);
+                        Toast.makeText(requireContext(),"Login successful",Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        Toast.makeText(requireContext(),"Login faild",Toast.LENGTH_LONG).show();
+
+                    }
+                }
+
             }
         });
     }

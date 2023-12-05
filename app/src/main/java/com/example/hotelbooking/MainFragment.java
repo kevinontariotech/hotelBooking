@@ -1,5 +1,6 @@
 package com.example.hotelbooking;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.hotelbooking.databinding.FragmentMainBinding;
 
@@ -45,6 +47,7 @@ public class MainFragment extends Fragment {
         recentList.add(new RecentModal("Banff", "Canada", "$150/night", R.drawable.hotel_main_4));
         recentList.add(new RecentModal("Santorini", "Greece", "$300/night", R.drawable.hotel_main_5));
 
+
         // set rv
         recentRecycler = view.findViewById(R.id.recent_recyler);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
@@ -62,6 +65,15 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(MainFragment.this).navigate(R.id.action_MainFragment_to_FirstFragment);
+            }
+        });
+        binding.nearbyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireContext(), MapsActivity.class);
+                startActivity(intent);
+//                NavHostFragment.findNavController(MainFragment.this).navigate(R.id.action_MainFragment_to_FirstFragment);
+
             }
         });
     }
