@@ -126,12 +126,18 @@ public class DatabaseManager extends SQLiteOpenHelper {
     }
 
     // get rooms from database and return it as an array of objects
-    public ArrayList<RoomModal> readRooms() {
+    public ArrayList<RoomModal> readRooms(String filter, String order) {
         // open database for reading
         SQLiteDatabase db = this.getReadableDatabase();
-
+        Cursor cursorCourses;
         // get data
-        Cursor cursorCourses = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        if (!order.isEmpty() && !filter.isEmpty()){
+            String sql = "SELECT * FROM " + TABLE_NAME + " ORDER BY " + filter + " " + order;
+            cursorCourses = db.rawQuery(sql, null);
+        } else {
+            cursorCourses = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        }
+
 
         // create arraylist to store rows
         ArrayList<RoomModal> roomModalArrayList = new ArrayList<>();
